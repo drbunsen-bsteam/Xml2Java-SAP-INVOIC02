@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>xample</groupId>
+    <artifactId>Xml2Java-SAP-INVOIC02</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.7</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- JAXB xjc plugin that invokes the xjc compiler to compile XML schema into Java classes.-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                
+                <configuration>
+                    <schemaDirectory>${basedir}/src/main/resources/xsd</schemaDirectory>
+                    <bindingDirectory>${basedir}/src/main/resources/bindings</bindingDirectory>
+                    <packageName>gen.sap.idoc.invoic02</packageName>
+                    <outputDirectory>${project.build.directory}/generated-sources/INVOIC02</outputDirectory>
+                    <extension>true</extension>
+                    <npa>true</npa>
+                    <nv>true</nv>
+                    <verbose>true</verbose>
+                </configuration>
+                
+                <!--
+                <configuration>
+                    <schemaDirectory>${basedir}/src/main/resources/xsd</schemaDirectory>
+                    <bindingDirectory>${basedir}/src/main/resources/bindings</bindingDirectory>
+                    <packageName>gen.sap.idoc.shpmnt06</packageName>
+                    <outputDirectory>${project.build.directory}/generated-sources/SHPMNT06</outputDirectory>
+                    <extension>true</extension>
+                    <npa>true</npa>
+                    <verbose>true</verbose>
+                </configuration>
+                -->
+            </plugin>
+        </plugins>
+    </build>
+    <name>Xml2Java-SAP-INVOIC02</name>
+</project>

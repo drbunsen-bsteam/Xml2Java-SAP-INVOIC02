@@ -1,0 +1,9 @@
+================================================================================
+ChangeLog: Xml2Java-SAP-INVOIC02
+================================================================================
+ NOTE: Please prepend a short description here when committing important
+ changes.
+===================== VERSION: Xml2Java-SAP-INVOIC02-1.0.0-SNAPSHOT ==================
+2014-11-13    Michael Buchli  <michael.buchli@wuerth-itensis.com>
+            - initial version
+            - example for XSD to Java genereation using JAXB (XJC)
